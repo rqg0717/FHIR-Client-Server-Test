@@ -1,3 +1,4 @@
 # FHIR-Client-Test
 FHIR Javascript Client Test
-Test FHIR publicly available servers for using FHIR client js.
+
+retrieving basic patient info from FHIR publicly available servers using FHIR cli js (https://github.com/rqg0717/client-js).
