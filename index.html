@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="FHIR DSTU2 Javacript Client Test">
+
+    <title>FHIR Client test</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/sunny/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.css"/>
+    <link rel="stylesheet" id="theme" href="css/selectric.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+
+<body>
+
+<div class="col-md-9 col-sm-12">
+
+    <div class="demo">
+        <h2>FHIR Public Servers:</h2>
+
+        <div class="view">
+            <select id="server_list">
+                <option value="1">SMART on FHIR</option>
+                <option value="2">Michigan Health Information Network</option>
+                <option value="3">Epic Open</option>
+                <option value="4">Hapi DSTU2 FHIR</option>
+                <option value="5">Cerner's DSTU2</option>
+                <option value="6">i2b2 FHIR server - DSTU2</option>
+                <option value="7">CareEvolution HIEBus - DSTU2</option>
+            </select>
+        </div>
+        <p id="select_value">Sample URL: <strong></strong></p>
+    </div>
+
+    <section id="quickfeatures">
+        <div style="padding:24px;">
+            <form action="#" method="post" name="patient_form" id="patient_form">
+                <label>Patient ID :</label>
+                <input type="text" name="patient_id" id="patient_id" title="Must be a patient ID."
+                       placeholder="ID" autofocus/>
+                <input type="button" name="submit_id" id="btn_id" value="Submit" onclick="submit_by_id()"/>
+            </form>
+        </div>
+
+        <h2>
+            Patient Name:
+            <span id="patient_name">...</span>
+        </h2>
+        <h2>Gender: <span id="patient_gender"></span></h2>
+        <h2>Date of Birth: <span id="patient_birth"></span></h2>
+        <h2>Address: <span id="patient_address"></span></h2>
+        <h2>Email: <span id="patient_email"></span></h2>
+
+        <h2>Health Condition:</h2>
+        <ol data-role="listview" id="cond_list"></ol>
+        <h2>Medication Order:</h2>
+        <ol data-role="listview" id="med_ord_list"></ol>
+        <h2>Medication Taken:</h2>
+        <ol data-role="listview" id="med_list"></ol>
+
+
+    </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript" src="libs/jquery-confirm.js"></script>
+<script src="libs/jquery.selectric.js"></script>
+<script src="https://cdn.rawgit.com/rqg0717/client-js/master/dist/fhir-client.js"></script>
+
+<script type="text/javascript" src="js/data.js"></script>
+
+
+<script>
+    $(function () {
+        $("#med_list").sortable();
+        $("#cond_list").disableSelection();
+        $("#cond_list").sortable();
+        $("#med_list").disableSelection();
+        $("#med_ord_list").sortable();
+        $("#med_ord_list").disableSelection();
+    });
+</script>
+
+</body>
+
+
+</html>
